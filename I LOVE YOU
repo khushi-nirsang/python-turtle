@@ -1,40 +1,325 @@
 # Code which will Draw a stucture of red heart with I LOVE YOU text.
 
-import turtle 
-from turtle import *
-wn = Screen()
-wn.bgcolor('black')
-t = turtle. Turtle()
-t.pencolor('white')
-def curve():
-    for i in range (200):
-        t.rt(1)
-        t.fd(1)      
-def heart():
-    t.fillcolor('red')
-    t.begin_fill()
-    t.lt (140)
-    t.fd (113)
-    curve () 
-    t.lt (120)
-    curve() 
-    t.fd(112)
-    t.end_fill()
-heart()
-t.ht()
-def write(message,pos):
-    x,y=pos
-    t.penup()
-    t.goto(x,y)
-    t.color('white')
-    style=("Stencil Std", 18, "italic")
-    t.write(message, font=style)
-write('I',(-68,95))
-write('L',(-55,95))
-write('0',(-42,95))
-write('V',(-30,95))
-write('E',(-14,95))
-write('Y', (10,95))
-write('0', (26,95))
-write('U', (45,95)) 
-wn.mainloop()
+import turtle
+
+# Setup the screen
+screen = turtle.Screen()
+screen.bgcolor("black")
+
+# Setup the turtle
+pen = turtle.Turtle()
+pen.speed(-10)
+pen.hideturtle()
+
+# Function to draw a heart
+def draw_heart():
+    pen.color("red")
+    pen.begin_fill()
+    pen.left(140)
+    pen.forward(224)
+    pen.circle(-112, 200)
+    pen.left(120)
+    pen.circle(-112, 200)
+    pen.forward(224)
+    pen.end_fill()
+    
+# Function to draw a silver diamond shape on top of the ring
+def draw_silver_diamond(x, y):
+    pen.color("White")
+    pen.pensize(1)
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    pen.fillcolor("silver")
+    pen.begin_fill()
+    pen.setheading(190)
+    
+    # Drawing a diamond shape (polygon)
+    for _ in range(2):
+        pen.forward(15)  # Width of diamond base
+        pen.left(120)
+        pen.forward(20)  # Side length of diamond
+        pen.left(115)
+        pen.forward(20)  # Back to the base
+        pen.left(120)
+    
+    pen.end_fill()
+
+# Function to draw two intertwined rings
+def draw_rings():
+    pen.pensize(5)
+    
+    # Draw first ring
+    pen.penup()
+    pen.goto(-5, -50)  # Adjust the position
+    pen.pendown()
+    pen.color("white")
+    pen.circle(30)
+
+# Drawing the heart
+pen.penup()
+pen.goto(0, -200)
+pen.pendown()
+draw_heart()
+
+# Drawing the silver diamonds on top of the rings
+draw_silver_diamond(-5, -37)  # Position on top of the first ring
+
+# Drawing the intertwined rings inside the heart
+draw_rings()
+
+# Drawing the white hearts inside the red heart
+def draw_white_hearts():
+    pen.color("white")
+    pen.pensize(1)
+    
+    # First heart
+    pen.penup()
+    pen.goto(-50, -70)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(370)  # Rotate heart by 90 degrees (facing right)
+    pen.left(60)
+    pen.forward(13)
+    pen.circle(4, 190)
+    pen.right(100)
+    pen.circle(4, 180)
+    pen.forward(10)
+    pen.end_fill()
+
+    # Second heart
+    pen.penup()
+    pen.goto(35, -60)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(40)
+    pen.forward(10)
+    pen.circle(4, 180)
+    pen.right(100)
+    pen.circle(4, 180)
+    pen.forward(13)
+    pen.end_fill()
+
+    # Third heart
+    pen.penup()
+    pen.goto(60, -146)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(14)
+    pen.forward(10)
+    pen.circle(4, 180)
+    pen.right(98)
+    pen.circle(4, 180)
+    pen.forward(10)
+    pen.end_fill()
+    
+    # Fourth heart
+    pen.penup()
+    pen.goto(48, -158)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(12)
+    pen.forward(10)
+    pen.circle(4, 180)
+    pen.right(102)
+    pen.circle(4, 180)
+    pen.forward(10)
+    pen.end_fill()
+    
+    # Fifth heart
+    pen.penup()
+    pen.goto(33, -168)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(10)
+    pen.forward(10)
+    pen.circle(4, 180)
+    pen.right(106)
+    pen.circle(4, 180)
+    pen.forward(10)
+    pen.end_fill()
+    
+     # Sixth heart
+    pen.penup()
+    pen.goto(20, -180)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(8)
+    pen.forward(10)
+    pen.circle(4, 180)
+    pen.right(110)
+    pen.circle(4, 180)
+    pen.forward(10)
+    pen.end_fill()
+    
+     # Seventh heart
+    pen.penup()
+    pen.goto(-3, -200)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(50)
+    pen.forward(25)
+    pen.circle(10, 180)
+    pen.right(100)
+    pen.circle(10, 180)
+    pen.forward(25)
+    pen.end_fill()
+    
+     # Eight heart
+    pen.penup()
+    pen.goto(73, -134)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(12)
+    pen.forward(10)
+    pen.circle(4, 180)
+    pen.right(94)
+    pen.circle(4, 180)
+    pen.forward(12)
+    pen.end_fill()
+    
+     # Ninth heart
+    pen.penup()
+    pen.goto(-22, -180)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(100)
+    pen.forward(8)
+    pen.circle(4, 180)
+    pen.right(90)
+    pen.circle(5, 180)
+    pen.forward(10)
+    pen.end_fill()
+    
+     # Tenth heart
+    pen.penup()
+    pen.goto(-35, -170)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(100)
+    pen.forward(8)
+    pen.circle(4, 180)
+    pen.right(90)
+    pen.circle(5, 180)
+    pen.forward(10)
+    pen.end_fill()
+    
+     # Eleventh heart
+    pen.penup()
+    pen.goto(-47, -160)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(100)
+    pen.forward(8)
+    pen.circle(4, 180)
+    pen.right(90)
+    pen.circle(5, 180)
+    pen.forward(10)
+    pen.end_fill()
+    
+     # Twelth heart
+    pen.penup()
+    pen.goto(-60, -150)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(100)
+    pen.forward(8)
+    pen.circle(4, 180)
+    pen.right(90)
+    pen.circle(5, 180)
+    pen.forward(10)
+    pen.end_fill()
+    
+     # Thirteenth heart
+    pen.penup()
+    pen.goto(-72, -140)  # Adjust position
+    pen.pendown()
+    pen.begin_fill()
+    pen.setheading(360)  # Rotate heart by 90 degrees (facing right)
+    pen.left(100)
+    pen.forward(8)
+    pen.circle(4, 180)
+    pen.right(90)
+    pen.circle(5, 180)
+    pen.forward(10)
+    pen.end_fill()
+
+draw_white_hearts()
+
+# Writing "I"
+pen.penup()
+pen.goto(-180, 10)
+pen.pendown()
+pen.color("white")
+pen.write("I", align="center", font=("Courier", 60, "bold"))
+
+# Writing "LOVE"
+pen.penup()
+pen.goto(-50, 10)
+pen.pendown()
+pen.write("LOVE", align="center", font=("Courier", 60, "bold"))
+
+# Writing "YOU"
+pen.penup()
+pen.goto(130, 10)
+pen.pendown()
+pen.write("YOU", align="center", font=("Courier", 60, "bold"))
+
+# Adding filled yellow stars around the text
+def draw_star(x, y):
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    pen.fillcolor("yellow")
+    pen.begin_fill()
+    for _ in range(5):
+        pen.forward(20)
+        pen.right(144)
+    pen.end_fill()
+
+for i in range(9):
+    draw_star(-200 + 50 * i, 100)
+    
+# Adding filled yellow stars around the text
+def draw_star(x, y):
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    pen.fillcolor("yellow")
+    pen.begin_fill()
+    for _ in range(5):
+        pen.forward(20)
+        pen.right(144)
+    pen.end_fill()
+
+for i in range(7):
+    draw_star(-150 + 50 * i, 150)
+    
+# Adding filled yellow stars around the text
+def draw_star(x, y):
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    pen.fillcolor("yellow")
+    pen.begin_fill()
+    for _ in range(5):
+        pen.forward(20)
+        pen.right(144)
+    pen.end_fill()
+
+for i in range(8):
+    draw_star(-180 + 50 * i, 125)
+
+# Finish
+turtle.done()
